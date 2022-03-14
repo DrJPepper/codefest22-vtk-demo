@@ -11,9 +11,15 @@ You need to install `vtk`, `gcc`, `cmake`, `fmt`, `boost`, `eigen`, `python3` an
 
 **Arch Linux specific commands:**
 
-    # CMake/VTK expects a bunch of optional dependencies even though I don't use them
-                                                     # <-- Everything beyond this point may be needed for cmake and make to succeed
-    pacman -Syu vtk qt5 cmake fmt boost eigen python ospray level-zero-loader level-zero-driver openvr python-mpi4py liblas adios2 libharu cgns utf8cpp pdal gl2ps glew jdk-openjdk jre-openjdk
+    # CMake/VTK expects a bunch of optional dependencies
+    # even though I don't use them
+    pacman -Syu vtk qt5 cmake fmt boost eigen python\
+        # Everything below this comment is an optional dependency
+        # that you may or may not need depending on your
+        # environment
+        ospray level-zero-loader level-zero-driver\
+        openvr python-mpi4py liblas adios2 libharu\
+        cgns utf8cpp pdal gl2ps glew jdk-openjdk jre-openjdk
     mkdir build
     cd build
     cmake ..
@@ -46,6 +52,14 @@ I tried for a long time to get everything installed on Windows but got frustrate
 - [VTK](https://gitlab.kitware.com/vtk/vtk/-/blob/master/Documentation/dev/build.md) (there may be precompiled binaries I just didn't see any on a quick look at the VTK website)
 
 ## Running
+
+### C++
+From the `codefest22-vtk-demo/cpp/build` directory, simply run `./joelsvtkdemo`.
+
+### Python
+Todo
+
+### JavaScript
 Todo
 
 ## Additional Sources
