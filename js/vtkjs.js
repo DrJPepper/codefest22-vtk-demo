@@ -22,7 +22,6 @@ window.addEventListener('load', function init() {
   renderWindow.addView(openglRenderWindow);
 
   const container = document.getElementById('vtk');
-  openglRenderWindow.setSize(container.width, container.height);
   openglRenderWindow.setContainer(container);
 
   const { width, height } = container.getBoundingClientRect();
