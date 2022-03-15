@@ -20,6 +20,11 @@ class MainWindow(QMainWindow):
         self.iren = self.vtkWidget.GetRenderWindow().GetInteractor()
         self.iren.SetInteractorStyle(vtk.vtkInteractorStyleTrackballCamera())
 
+        self.exporter = vtk.vtkOBJExporter()
+        self.exporter.SetActiveRenderer(self.ren)
+        self.exporter.SetRenderWindow(self.vtkWidget.GetRenderWindow())
+        self.exporter.SetFilePrefix("philly_scene")
+
         colors = vtk.vtkNamedColors()
         info = {}
 
@@ -96,8 +101,14 @@ class MainWindow(QMainWindow):
         self.centerButton.clicked.connect(reset_camera)
         reset_camera()
 
+        export_scene.exporter = self.exporter
+        self.exportButton.clicked.connect(export_scene)
+
         self.show()
         self.iren.Initialize()
+
+def export_scene():
+    export_scene.exporter.Update()
 
 def reset_camera():
     reset_camera.camera.SetPosition(39.7219,  -75.2668, -0.556774)

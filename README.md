@@ -76,3 +76,6 @@ Todo
 - [JSON Library](https://github.com/nlohmann/json)
 - Fish Models: [One](https://free3d.com/3d-model/3d-fish-model-low-poly-63627.html), [Two](https://www.cgtrader.com/items/179902/download-page), [Three](https://free3d.com/3d-model/bluegreen-reef-chromis-v2--439073.html)
 - [CMake template I worked from](https://github.com/euler0/mini-cmake-qt/tree/qt5)
+- [PyQt5 template I worked from](https://gist.github.com/paskino/7b7ed6e4541d682bd5ce5d521505dd8f)
+- [Building Dataset](https://www.opendataphilly.org/dataset/buildings)
+- [Address to Lat/Long tool](https://www.geocod.io/upload/)

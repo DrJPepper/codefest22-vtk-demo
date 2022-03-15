@@ -47,6 +47,19 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="exportButton">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>340</y>
+      <width>91</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Export Scene</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
