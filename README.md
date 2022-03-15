@@ -70,7 +70,10 @@ All these instructions assume you are in the `codefest22-vtk-demo` directory.
     python3 pythondemo.py
 
 ### JavaScript
-Todo
+Doesn't need to be firefox that's just what I use
+
+    cd js
+    firefox vtkjs.html
 
 ## Additional Sources
 - [JSON Library](https://github.com/nlohmann/json)

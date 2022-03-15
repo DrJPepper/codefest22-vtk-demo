@@ -1,0 +1,21 @@
+.columnl {
+  float: left;
+  width: 95vh;
+}
+
+#vtk {
+    height: 95vh;
+    width: 95vh;
+}
+
+.columnr {
+  float: left;
+  padding-left: 10%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
