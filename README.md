@@ -1,6 +1,6 @@
 # Philly Codefest VTK Workshop
 
-This is still a work in progress currently
+A collection of three demos showing how to use VTK in different languages as well as my slides from my Philly Codefest 2022 workshop.
 
 ## Installation
 
@@ -82,3 +82,4 @@ Doesn't need to be firefox that's just what I use
 - [PyQt5 template I worked from](https://gist.github.com/paskino/7b7ed6e4541d682bd5ce5d521505dd8f)
 - [Building Dataset](https://www.opendataphilly.org/dataset/buildings)
 - [Address to Lat/Long tool](https://www.geocod.io/upload/)
+- [VTK.js template I worked from](https://kitware.github.io/vtk-js/examples/SimpleCone.html)

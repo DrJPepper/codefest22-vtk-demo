@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-# Add folder where are supportive functions
+# Add folder where supporting functions are
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -8,13 +8,13 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
+# Build settings
 set(CMAKE_CXX_FLAGS "-Wall -O2 -fcompare-debug-second")
 set(CMAKE_CXX_FLAGS_DEBUG "-ggdb")
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
-# Include Qt basic functions
+# Include basic Qt functions
 include(QtCommon)
-
-# Basic information about project
 
 project(joelsvtkdemo VERSION 1.0)
 
@@ -33,6 +33,7 @@ set(SOURCE_FILES
 
 add_project_meta(META_FILES_TO_INCLUDE)
 
+# Find libraries
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(VTK REQUIRED)
 
@@ -40,8 +41,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR} ${VTK_INCLUDE_DIRS} ${JSON_INCLU
 
 add_executable(${PROJECT_NAME} ${OS_BUNDLE} ${SOURCE_FILES} ${META_FILES_TO_INCLUDE} ${RESOURCE_FILES}
 )
-
-set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
 
 target_precompile_headers(${PROJECT_NAME} INTERFACE QtWidgets.h)
 

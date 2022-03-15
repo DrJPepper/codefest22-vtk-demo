@@ -35,15 +35,17 @@ window.addEventListener('load', function init() {
 
   interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
-  // Storage for spheres
+  // Storage for spheres and tubes
   let spheres = [];
   let tubes = [];
 
   // Event listeners
   const addButton = document.getElementById("add-node");
   addButton.addEventListener('click', (e) => {
+    // Defines the area spheres can spawn in
     const spacing = 30.0;
     const sphereSource = vtkSphereSource.newInstance({ radius: 1.0 });
+    // Randomly place a sphere
     sphereSource.setCenter(Math.random() * spacing, Math.random() * spacing, Math.random() * spacing);
 
     const mapper = vtkMapper.newInstance();
@@ -54,11 +56,16 @@ window.addEventListener('load', function init() {
 
     spheres.push(actor);
     renderer.addActor(actor);
+    
+    // Make a tube connection to a random other node
     if (spheres.length > 1) {
       let index;
+      // Start with a basic line source (not a polyline)
       const lineSource = vtkLineSource.newInstance();
+      // Set endpoints
       lineSource.setPoint1(sphereSource.getCenter());
       if (spheres.length > 2) {
+        // Get a random other sphere
         index = Math.round(Math.random() * (spheres.length - 2));
       } else {
         index = 0;
@@ -66,6 +73,7 @@ window.addEventListener('load', function init() {
       lineSource.setPoint2(spheres[index].getCenter());
       lineSource.setResolution(20);
       lineSource.update();
+      // Map this to a tube with thickness
       const tubeFilter = vtkTubeFilter.newInstance();
       tubeFilter.setInputConnection(lineSource.getOutputPort());
       tubeFilter.setNumberOfSides(8);
@@ -75,6 +83,8 @@ window.addEventListener('load', function init() {
       mapperL.setInputConnection(tubeFilter.getOutputPort());
       const actorL = vtkActor.newInstance();
       actorL.setMapper(mapperL);
+      // Store all tubes associated with an actor at the same index
+      // as the actor for later retrieval
       if (spheres.length == 2) {
         tubes[0] = [actorL];
       } else if (spheres.length > 2) {
@@ -95,27 +105,25 @@ window.addEventListener('load', function init() {
 
   const removeLast = document.getElementById("remove-last");
   removeLast.addEventListener('click', (e) => {
-    if (spheres.length) {
-      const actor = spheres.splice(spheres.length - 1, 1)[0];
-      let spheresTubes = tubes.splice(tubes.length - 1, 1)[0];
-      for (let tube of spheresTubes)
-        renderer.removeActor(tube);
-      renderer.removeActor(actor);
-      renderer.resetCamera();
-      renderWindow.render();
-    }
+    removeNode(spheres.length - 1);
   });
 
   const removeFirst = document.getElementById("remove-first");
   removeFirst.addEventListener('click', (e) => {
+    removeNode(0);
+  });
+
+  // Removes all tubes associated with a sphere and
+  // the sphere itself
+  const removeNode = (index) => {
     if (spheres.length) {
-      const actor = spheres.splice(0, 1)[0];
-      let spheresTubes = tubes.splice(0, 1)[0];
+      const actor = spheres.splice(index, 1)[0];
+      let spheresTubes = tubes.splice(index, 1)[0];
       for (let tube of spheresTubes)
         renderer.removeActor(tube);
       renderer.removeActor(actor);
       renderer.resetCamera();
       renderWindow.render();
     }
-  });
+  }
 });

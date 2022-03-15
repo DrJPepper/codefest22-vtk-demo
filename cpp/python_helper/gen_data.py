@@ -1,3 +1,7 @@
+"""
+This file generates the json read by the C++ program
+"""
+
 import json
 from math import sin, cos, floor
 
