@@ -41,7 +41,7 @@ I won't have access to a Mac until Wednesday to test this, but this should be wh
 
 ### Windows
 
-I tried for a long time to get everything installed on Windows, but got frustrated and gave up. The C++ and Python demos should theoretically run on windows; you'll need to install the following dependencies (not needed for JS demo of course):
+I tried for a long time to get everything installed on Windows, but got frustrated and gave up. The C++ and Python demos should theoretically run on windows; you'll need to install the following dependencies:
 
 - [Git](https://gitforwindows.org/)
 - [CMake](https://cmake.org/download/)
@@ -65,7 +65,9 @@ All these instructions assume you are in the `codefest22-vtk-demo` directory.
     ./joelsvtkdemo
 
 ### Python
-Todo
+
+    cd python
+    python3 pythondemo.py
 
 ### JavaScript
 Todo
@@ -73,4 +75,4 @@ Todo
 ## Additional Sources
 - [JSON Library](https://github.com/nlohmann/json)
 - Fish Models: [One](https://free3d.com/3d-model/3d-fish-model-low-poly-63627.html), [Two](https://www.cgtrader.com/items/179902/download-page), [Three](https://free3d.com/3d-model/bluegreen-reef-chromis-v2--439073.html)
-- [C++ Template I Worked from](https://github.com/euler0/mini-cmake-qt/tree/qt5)
+- [CMake template I worked from](https://github.com/euler0/mini-cmake-qt/tree/qt5)
