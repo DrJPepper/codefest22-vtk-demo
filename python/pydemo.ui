@@ -27,10 +27,10 @@
    <widget class="QPushButton" name="centerButton">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>310</y>
-      <width>91</width>
-      <height>25</height>
+      <x>1040</x>
+      <y>294</y>
+      <width>111</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -50,10 +50,10 @@
    <widget class="QPushButton" name="exportButton">
     <property name="geometry">
      <rect>
-      <x>1050</x>
+      <x>1040</x>
       <y>340</y>
-      <width>91</width>
-      <height>25</height>
+      <width>111</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">

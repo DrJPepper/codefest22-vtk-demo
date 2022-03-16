@@ -14,7 +14,7 @@
    <string>Main Window</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QVTKOpenGLStereoWidget" name="qvtkWidget" native="true">
+   <widget class="QFrame" name="qvtkFrame">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -28,9 +28,9 @@
     <property name="geometry">
      <rect>
       <x>1040</x>
-      <y>320</y>
-      <width>91</width>
-      <height>25</height>
+      <y>310</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -41,9 +41,9 @@
     <property name="geometry">
      <rect>
       <x>1040</x>
-      <y>360</y>
-      <width>91</width>
-      <height>25</height>
+      <y>350</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -64,9 +64,9 @@
     <property name="geometry">
      <rect>
       <x>1040</x>
-      <y>280</y>
-      <width>91</width>
-      <height>25</height>
+      <y>270</y>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -75,13 +75,6 @@
    </widget>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QVTKOpenGLStereoWidget</class>
-   <extends>QWidget</extends>
-   <header>QVTKOpenGLStereoWidget.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

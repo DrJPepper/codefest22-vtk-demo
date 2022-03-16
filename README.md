@@ -7,7 +7,7 @@ A collection of three demos showing how to use VTK in different languages as wel
 All these instructions assume you are in the `codefest22-vtk-demo` directory. **You do not need to install anything to run the JavaScript demo, these dependencies are only for the C++ and Python demos**. If you need to make any changes or improvements to these instructions to get the demos to work for you, please make a pull request with your corrections so I can fix any issues.
 
 ### Linux
-You need to install `vtk`, `gcc`, `cmake`, `fmt`, `boost`, `eigen`, `python3` and `qt5` via your distro's package manager. You possibly also need to install the optional VTK dependencies listed in the following Arch specific install process.
+You need to install `vtk`, `gcc`, `cmake`, `make`, `fmt`, `boost`, `eigen`, `python3` and `qt5` via your distro's package manager. You possibly also need to install the optional VTK dependencies listed in the following Arch specific install process.
 
 **Arch Linux specific commands:**
 
@@ -20,6 +20,8 @@ You need to install `vtk`, `gcc`, `cmake`, `fmt`, `boost`, `eigen`, `python3` an
         ospray level-zero-loader level-zero-driver \
         openvr python-mpi4py liblas adios2 libharu \
         cgns utf8cpp pdal gl2ps glew jdk-openjdk jre-openjdk
+    # Below this is for building the C++ demo, it's not needed for
+    # the python demo
     cd cpp
     mkdir build
     cd build
@@ -27,17 +29,23 @@ You need to install `vtk`, `gcc`, `cmake`, `fmt`, `boost`, `eigen`, `python3` an
     make
 
 ### Mac
-I won't have access to a Mac until Wednesday to test this, but this should be what's needed to get the C++ and python demos to run. The same caveat in the Linux section about optional VTK dependencies applies here as well. Before running the following commands, install [Homebrew](https://brew.sh/).
+I've tested this on Mac and was not able to get the C++ demo to run due to two separate errors. Some issue is arising with a `vtkPolyLine` object that is causing the program to crash. If I just remove the code related to that, then the program still doesn't run because the Mac I have access to only supports up to OpenGL 2.1 but 3.2 is needed.
+
+Having said that, if you still want to try to run the C++ demo, the same caveat in the Linux section about optional VTK dependencies applies here as well. Before running the following commands, install [Homebrew](https://brew.sh/).
 
     xcode-select --install # If you don't already have CLI dev tools installed
     brew update
     brew upgrade
-    brew install qt5 libxml2 vtk gcc python3 cmake fmt boost eigen
+    brew install qt5 libxml2 vtk gcc python3 cmake fmt boost eigen make
+    # Below this is for building the C++ demo, it's not needed for
+    # the python demo
+    export PATH=/usr/local/bin:$PATH
+    hash -r
     cd cpp
     mkdir build
     cd build
     CXX=/usr/local/bin/g++-11 CC=/usr/local/bin/gcc-11 cmake .. -DQt5_DIR=$(brew --prefix qt5)/lib/cmake/Qt5
-    make
+    gmake
 
 ### Windows
 
@@ -63,14 +71,17 @@ All these instructions assume you are in the `codefest22-vtk-demo` directory.
     python3 gen_data.py
     cd ../build
     ./joelsvtkdemo
+    # On Mac, run:
+    # ./joelsvtkdemo.app/Contents/MacOS/joelsvtkdemo
 
 ### Python
+I was able to run this demo on Mac (as well as Linux of course)
 
     cd python
     python3 pythondemo.py
 
 ### JavaScript
-Doesn't need to be firefox that's just what I use
+Doesn't need to be firefox that's just what I use. If you can't open files from the command line just right click -> open in firefox in your file browser.
 
     cd js
     firefox vtkjs.html

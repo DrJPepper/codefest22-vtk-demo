@@ -41,6 +41,7 @@
 *.snm
 *.vrb
 *.json
+*.swp
 build/
 __pycache__/
 
