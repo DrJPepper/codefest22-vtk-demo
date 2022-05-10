@@ -1,8 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-//#define PREFIX ".."
-#define PREFIX "/Users/jcp353/School/Other/codefest22-vtk-demo/cpp"
+#define PREFIX ".."
 
 MainWindow::MainWindow(QWidget *parent)
 : QMainWindow(parent), ui(new Ui::MainWindow)
