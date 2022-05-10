@@ -8,7 +8,7 @@
 #include <QApplication>
 #include <QWidget>
 #include <QTextBrowser>
-#include <QVTKOpenGLStereoWidget.h>
+#include <QVTKOpenGLNativeWidget.h>
 
 #include <float.h>
 #include <algorithm>

@@ -14,16 +14,6 @@
    <string>Main Window</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="qvtkFrame">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>971</width>
-      <height>781</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pauseButton">
     <property name="geometry">
      <rect>
@@ -73,8 +63,25 @@
      <string>Center Scene</string>
     </property>
    </widget>
+   <widget class="QVTKOpenGLNativeWidget" name="qvtkWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>971</width>
+      <height>781</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKOpenGLNativeWidget</class>
+   <extends>QWidget</extends>
+   <header>QVTKOpenGLNativeWidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
