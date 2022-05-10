@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+//#define PREFIX ".."
+#define PREFIX "/Users/jcp353/School/Other/codefest22-vtk-demo/cpp"
+
 MainWindow::MainWindow(QWidget *parent)
 : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -13,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     counter = 0;
 
     // Read in the fish_data json file
-    std::ifstream inFile("../python_helper/fish_data.json");
+    std::ifstream inFile(PREFIX "/python_helper/fish_data.json");
     inFile >> js;
 
     // Initialize VTK Objects
@@ -37,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Add fish models
     for (auto fish : js) {
         vtkNew<vtkOBJImporter> importer;
-        std::string fileName = "../res/" + fish["file"].get<std::string>() + ".obj";
+        std::string fileName = PREFIX "/res/" + fish["file"].get<std::string>() + ".obj";
         // NOTE: this assumes you are running the program from vtk_tutorial/build
         importer->SetFileName(fileName.c_str());
         importer->SetRenderWindow(renderWindow);
